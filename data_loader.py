@@ -24,6 +24,14 @@ BIKE_INDEX_NAME = os.getenv("BIKE_INDEX_NAME")
 STORE_INDEX_NAME = os.getenv("STORE_INDEX_NAME")
 EXIT_CODE_ERROR = 1
 
+# Q : what is difference between bike-key and bike-index name?
+# A : bike-key is the prefix for the key of each bike document in Redis, and bike index name is the name of the search index that we will create to index the bike documents.
+
+# Q : what is index definition for redis search?
+# A : The index definition is a set of options that define how the search index will be created. It includes the index type (JSON in this case), the prefix to use for the keys of the documents to be indexed, and other options such as the language to use for stemming and stop words.
+# Q : is it mean schema for search index?
+# A : Yes, the index definition is a schema for the search index.
+
 # Connect to Redis and reset to a known state.
 print(f"Connecting to Redis.")
 redis_client = redis.from_url(os.getenv("REDIS_URL"))
